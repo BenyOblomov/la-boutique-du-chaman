@@ -7,8 +7,11 @@
             <h4 class="card-title">Type : <?=$value['type']?></h4>
             <?=getStar($value['note'])?>
             <p class="card-text"><?=$value['description']?></p>
-            <button type="button" class="btn btn-outline-dark text-uppercase fw-bold ">Acheter</button>
-            <a href="mapage.php?id=<?=$value['id']?>"><button type="button" class="btn btn-outline-dark text-uppercase fw-bold ">Détails</button></a>
+            <div class="d-flex justify-content-around">
+            <a href="page404.php"><button type="button" class="btn btn-outline-dark text-uppercase fw-bold ">Acheter</button></a>
+            <a href="mapage.php?id=<?=$value['id']?>">
+            <button type="button" class="btn btn-outline-dark text-uppercase fw-bold ">Détails</button></a>
+            </div>
         </div>
     </div>
 </div>

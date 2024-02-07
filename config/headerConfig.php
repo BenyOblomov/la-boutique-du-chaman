@@ -7,7 +7,7 @@ $index_page = $domaine;
 $produits_page = $domaine . 'produits.php';
 $contact_page = $domaine . 'contact.php';
 $mapage_page = $domaine . "mapage.php";
-$panier_page = $domaine . "panier.php";
+$page404_page = $domaine . "page404.php";
 
 $index_name = "LA BOUTIQUE DU CHAMAN";
 $produits_name = 'NOS PRODUITS';

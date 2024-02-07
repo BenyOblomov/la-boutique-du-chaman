@@ -17,7 +17,7 @@ foreach ($medecins as $value){
     echo '</ul>';
     // Bouton pour réserver un créneau avec le médecin
     echo '<div class="card-body">';
-    echo '<button type="button" class="btn btn-outline-dark text-uppercase fw-bold ">reserver un creneau</button>';
+    echo '<a href="page404.php"><button type="button" class="btn btn-outline-dark text-uppercase fw-bold ">reserver un creneau</button></a>';
     echo '</div>';
     echo '</div>';
 }

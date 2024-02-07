@@ -48,8 +48,9 @@ require_once dirname(__DIR__) . ('/fonctions/header.fn.php');
                             include 'utilities/navbar_li.php';
                         ?>
                     </ul>
-                    <i class="bi bi-cart text-warning me-5"></i>
-                    <i class="bi bi-person text-warning me-5"></i>
+                    <a href="page404.php"><i class="bi bi-cart text-warning me-5"></i></a>
+                    <a href="page404.php"><i class="bi bi-person text-warning me-5"></i></a>
+                    
                 </div>
             </div>
         </nav>

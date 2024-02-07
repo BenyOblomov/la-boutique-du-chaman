@@ -9,7 +9,7 @@
                 <h4 class="card-title">Type : <?=$product['type']?></h4>
                 <?=getStar($product['note'])?>
                 <p class="card-text"><?=$product['description']?></p>
-                <button type="button" class="btn btn-outline-dark text-uppercase fw-bold ">Acheter</button>
+                <a href="page404.php"><button type="button" class="btn btn-outline-dark text-uppercase fw-bold ">Acheter</button></a>
             </div>
         </div>
         </div>
