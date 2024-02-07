@@ -1,21 +1,24 @@
 <?php
-include 'data/medecins_data.php';
-
+// Boucle foreach parcourant le tableau $medecins et affichant les informations de chaque médecin
 foreach ($medecins as $value){
-  echo ' <div class="card border m-5" style="width: 35rem;">
-    <img src="assets/img/'.$value["image"].'.png" class="card-img-top" alt="...">
-      <div class="card-body">
-              <h5 class="card-title">'.$value["name"].'</h5>
-              <p class="card-text">'.$value["des"].' </p>
-      </div>
-        <ul class="list-group list-group-flush">
-                <li class="list-group-item">'.$value["etude"].'</li>
-                <li class="list-group-item">'.$value["prix"].'</li>
-
-        </ul>
-      <div class="card-body">
-          <button type="button" class="btn btn-outline-dark text-uppercase fw-bold ">reserver un crenaux</button>
-      </div>
-  </div>';
+    echo ' <div class="card border m-5" style="width: 35rem;">';
+    // Affichage de l'image du médecin
+    echo '<img src="assets/img/'.$value["path"].'.png" class="card-img-top" alt="...">';
+    echo '<div class="card-body">';
+    // Affichage du nom du médecin
+    echo '<h5 class="card-title">'.$value["name"].'</h5>';
+    // Affichage de la description du médecin
+    echo '<p class="card-text">'.$value["description"].' </p>';
+    echo '</div>';
+    // Liste des éléments associés au médecin (études et prix)
+    echo '<ul class="list-group list-group-flush">';
+    echo '<li class="list-group-item">'.$value["studies"].'</li>';
+    echo '<li class="list-group-item">'.$value["price"].'</li>';
+    echo '</ul>';
+    // Bouton pour réserver un créneau avec le médecin
+    echo '<div class="card-body">';
+    echo '<button type="button" class="btn btn-outline-dark text-uppercase fw-bold ">reserver un creneau</button>';
+    echo '</div>';
+    echo '</div>';
 }
 ?>
