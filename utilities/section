@@ -1,4 +1,4 @@
-<?='<section class="container-md w-66 m-auto mb-3">
+<?='<section class="container-md w-66 m-auto">
     <div class="text-center text-uppercase mt-5">
         <h2 class="fw-bold">'.$sectionTitle.'</h2>
     </div>

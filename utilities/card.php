@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h4 class="card-title text-uppercase fw-bold"><?=$product['name']?></h4>
                 <h4 class="card-title">Prix : <?=$product['price']?>$</h4>
-                <h4 class="card-title">Type : <?=$product['type']?>$</h4>
+                <h4 class="card-title">Type : <?=$product['type']?></h4>
                 <?=getStar($product['note'])?>
                 <p class="card-text"><?=$product['description']?></p>
                 <button type="button" class="btn btn-outline-dark text-uppercase fw-bold ">Acheter</button>

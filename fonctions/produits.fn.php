@@ -5,7 +5,7 @@
 // Elle renvoie les résultats sous forme de tableau.
 
 function findAllPotions($db) {
-    $sqlPotions = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.id AS type FROM products p JOIN types t ON p.typeId = t.id WHERE typeId = 2;";
+    $sqlPotions = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id WHERE typeId = 2;";
     $requetePotions = $db->query($sqlPotions);
     $potions = $requetePotions->fetchAll();
     return $potions;
@@ -16,7 +16,7 @@ function findAllPotions($db) {
 // Elle renvoie les résultats sous forme de tableau.
 
 function findAllPierres($db) {
-    $sqlPierres = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.id AS type FROM products p JOIN types t ON p.typeId = t.id WHERE typeId = 1;";
+    $sqlPierres = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id WHERE typeId = 1;";
     $requetePierres = $db->query($sqlPierres);
     $pierres = $requetePierres->fetchAll();
     return $pierres;
@@ -26,7 +26,7 @@ function findAllPierres($db) {
 // Elle renvoie les résultats sous forme d'un tableau associatif.
 
 function findProductById($db, $currentId) {
-    $sql = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.id AS type FROM products p JOIN types t ON p.typeId = t.id WHERE p.id = $currentId";
+    $sql = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id WHERE p.id = $currentId";
     $requete = $db->query($sql);
     $product = $requete->fetch();
     return $product;
@@ -62,7 +62,7 @@ function getStar($rating) {
 // Elle renvoie les résultats de la recherche sous forme de tableau.
 
 function searchProducts($db, $search) {
-    $sql = "SELECT * FROM products WHERE LOWER(name) LIKE LOWER('%$search%') || LOWER(description) LIKE LOWER('%$search%') ;";
+    $sql = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id WHERE LOWER(name) LIKE LOWER('%$search%') || LOWER(description) LIKE LOWER('%$search%') ;";
     $requete = $db->query($sql);
     $products = $requete->fetchAll();
     return $products;
@@ -72,10 +72,16 @@ function searchProducts($db, $search) {
 // Elle renvoie les résultats triés sous forme de tableau.
 
 function OrderBy($db, $sort) {
-    $sql = "SELECT * FROM products ORDER BY $sort;";
+    $sql = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id ORDER BY $sort;";
     $requete = $db->query($sql);
     $products = $requete->fetchAll();
     return $products;
 }
 
+function filters($db, $search, $sort) {
+    $sql = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id WHERE LOWER(p.name) LIKE LOWER('%$search%') || LOWER(description) LIKE LOWER('%$search%') ORDER BY $sort;";
+    $requete = $db->query($sql);
+    $products = $requete->fetchAll();
+    return $products;
+}
 ?>
