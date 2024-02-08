@@ -3,6 +3,8 @@
 include('utilities\header.php');
 // Inclusion du fichier contenant les fonctions relatives aux médecins
 include('fonctions/medecins.fn.php');
+// Inclusion du fichier contenant la fonction slidersImg
+include('fonctions/slider.fn.php');
 ?>
 
 <main class="container-fluid d-flex flex-column align-items-center">
@@ -22,10 +24,7 @@ include('fonctions/medecins.fn.php');
                         <img src="assets/img/boutique.jpg" class="d-block w-100" alt="...">
                     </div>
                     <?php 
-                    // Récupération des images du carrousel à partir de la base de données
-                    $sqlSliders = "SELECT * FROM sliders;";
-                    $requeteSliders = $db->query($sqlSliders);
-                    $sliders = $requeteSliders->fetchAll();
+                    $sliders = slidersImg($db);
                     // Inclusion du fichier contenant les divs pour chaque image du carrousel
                     include('utilities/sliders_div.php');
                     ?>
