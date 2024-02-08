@@ -3,9 +3,15 @@
     <!-- Formulaire de tri -->
     <form class="d-flex m-2 col-3" method="post" action="produits.php">
         <select class="form-select" name="trier" aria-label="Default select example">
-            <option value="price ASC">Prix croissant</option>
-            <option value="price DESC">Prix décroissant</option>
-            <option value="note DESC">Les mieux notés</option>
+            <option value="price ASC" <?php if (isset($_POST['trier']) && $_POST['trier']=="price ASC") {
+                echo 'selected';
+            }?>>Prix croissant</option>
+            <option value="price DESC" <?php if (isset($_POST['trier']) && $_POST['trier']=="price DESC") {
+                echo 'selected';
+            }?>>Prix décroissant</option>
+            <option value="note DESC" <?php if (isset($_POST['trier']) && $_POST['trier']=="note DESC") {
+                echo 'selected';
+            }?>>Les mieux notés</option>
         </select>
         <button class="btn btn-outline-warning h-25" type="submit">Trier</button>
     </form>
