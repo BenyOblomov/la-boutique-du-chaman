@@ -1,7 +1,7 @@
 <?php
 // Boucle foreach parcourant le tableau $medecins et affichant les informations de chaque médecin
 foreach ($medecins as $value){
-    echo ' <div class="card border m-5" style="width: 35rem;">';
+    echo ' <div class="card border m-5 w-75 w-50-md" style="width: 35rem;">';
     // Affichage de l'image du médecin
     echo '<img src="assets/img/'.$value["path"].'.png" class="card-img-top" alt="...">';
     echo '<div class="card-body">';
