@@ -1,4 +1,4 @@
-// <!-- Formulaire de tri et de recherche -->
+<!-- Formulaire de tri et de recherche -->
 <div class="d-flex justify-content-around align-items-center">
     <!-- Formulaire de tri -->
     <form class="d-flex m-2 col-3" method="post" action="produits.php">
