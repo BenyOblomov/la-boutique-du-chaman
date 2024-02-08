@@ -9,13 +9,13 @@ include('fonctions/medecins.fn.php');
     <section class="container-sm d-flex flex-column align-items-center">
         <!-- Titre principal -->
         <h2 class="fw-bold">La boutique du chaman : c'est quoi?</h2>
-        <div class="d-flex justify-content-center align-items-center">
-            <div class="w-50 m-5">
+        <div class="d-md-flex justify-content-center align-items-center">
+            <div class="w-50-md m-5">
                 <!-- Paragraphe d'introduction -->
                 <p>Bienvenue à la <b>Boutique du Chaman</b>, l'ultime destination pour tous vos besoins en <b>potions et pierres magiques</b>potions et pierres magiques dans le royaume  Fondée il y a plus de 400 ans, notre boutique est située au cœur de la paisible cité d'Hyrule, où nos deux éminents spécialistes, le renommé <b>Dr Link et la mystique Dr Zelda</b>, mettent leur expertise au service des aventuriers intrépides.<br>Plongez dans un monde envoûtant de remèdes extraordinaires et d'amulettes mystiques, soigneusement sélectionnés pour maximiser votre potentiel héroïque. Que vous cherchiez à renforcer votre santé, accroître vos pouvoirs ou résister aux forces obscures, <b>La Boutique du Chaman</b> a tout ce dont vous avez besoin.<br>Nos potions sont préparées avec soin, à base d'ingrédients rares et puissants cueillis dans les recoins les plus mystérieux d'Hyrule. Le Dr Link et le Dr Zelda se tiennent prêts à vous guider à travers notre collection, garantissant que chaque visite à notre boutique soit une expérience magique inoubliable. <b>Préparez-vous à embrasser votre destinée avec les élixirs exceptionnels de La Boutique du Chaman!</b></p>
             </div>
             <!-- Carrousel d'images -->
-            <div id="carouselExampleAutoplaying" class="carousel slide w-50 m-5" data-bs-ride="carousel">
+            <div id="carouselExampleAutoplaying" class="carousel slide w-50-md m-5" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <!-- Première diapositive active -->
                     <div class="carousel-item active">

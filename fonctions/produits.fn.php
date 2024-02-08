@@ -57,31 +57,21 @@ function getStar($rating) {
     }
 }
 
-// La fonction searchProducts effectue une recherche dans la table "products" en fonction du terme de recherche fourni.
-// Elle recherche le terme dans le nom et la description du produit, sans distinction entre majuscules et minuscules.
-// Elle renvoie les résultats de la recherche sous forme de tableau.
-
-function searchProducts($db, $search) {
-    $sql = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id WHERE LOWER(name) LIKE LOWER('%$search%') || LOWER(description) LIKE LOWER('%$search%') ;";
-    $requete = $db->query($sql);
-    $products = $requete->fetchAll();
-    return $products;
-}
-
-// La fonction OrderBy sélectionne tous les produits de la table "products" et les trie en fonction de la colonne spécifiée par le paramètre $sort.
-// Elle renvoie les résultats triés sous forme de tableau.
-
-function OrderBy($db, $sort) {
-    $sql = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id ORDER BY $sort;";
-    $requete = $db->query($sql);
-    $products = $requete->fetchAll();
-    return $products;
-}
-
 function filters($db, $search, $sort) {
-    $sql = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id WHERE LOWER(p.name) LIKE LOWER('%$search%') || LOWER(description) LIKE LOWER('%$search%') ORDER BY $sort;";
+    // Requête SQL pour sélectionner les produits en fonction des critères de recherche et de tri
+    $sql = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type 
+            FROM products p 
+            JOIN types t ON p.typeId = t.id 
+            WHERE LOWER(p.name) LIKE LOWER('%$search%') || LOWER(description) LIKE LOWER('%$search%') 
+            ORDER BY $sort;";
+    
+    // Exécution de la requête SQL
     $requete = $db->query($sql);
+    
+    // Récupération de tous les produits qui correspondent aux critères de recherche et de tri
     $products = $requete->fetchAll();
+    
+    // Retourne les produits sélectionnés
     return $products;
 }
-?>
+
