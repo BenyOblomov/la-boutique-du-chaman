@@ -32,4 +32,3 @@ require (__DIR__ . '/utilities/card.php');
 echo '<div class="py-4"></div>';
 // Inclusion du pied de page
 require (__DIR__ . '/utilities/footer.php');
-?>

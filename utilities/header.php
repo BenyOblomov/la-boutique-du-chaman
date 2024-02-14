@@ -30,7 +30,7 @@ require_once dirname(__DIR__) . ('/fonctions/header.fn.php');
         <nav class="navbar navbar-expand-lg bg-footer">
             <div class="container-fluid">
                 <!-- Logo de l'entreprise avec un lien vers la page d'accueil -->
-                <a class="navbar-brand" href="index.php"><img src="assets/img/logo-removebg-preview.png" alt=""></a>
+                <a class="navbar-brand" href="index.php"><img src="assets/img/logo-removebg-preview.png" alt="logo zelda" class="w-75"></a>
                 <!-- Bouton de basculement pour les appareils mobiles -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

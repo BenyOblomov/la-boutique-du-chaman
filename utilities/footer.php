@@ -7,7 +7,7 @@
     <!-- Première section du pied de page -->
     <div class="container-fluid d-flex justify-content-between align-items-center bg-footer">
         <!-- Logo de l'entreprise -->
-        <img src="assets/img/logo-removebg-preview.png" alt="logo">
+        <img src="assets/img/logo-removebg-preview.png" class="d-none d-sm-block" alt="logo">
         <!-- Horaires de l'entreprise -->
         <p>
             <b>Horaires</b><br>Du Lundi au Vendredi<br>de 8h à 14h, de 16h à 21h

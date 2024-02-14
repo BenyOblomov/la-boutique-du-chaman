@@ -1,11 +1,16 @@
 <?php
-
+function findAllProducts($db) {
+    $sqlProduits = "SELECT p.id AS id, p.name AS name, pi.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id JOIN pictures pi ON pi.productsId = p.id;";
+    $requeteProduits = $db->query($sqlProduits);
+    $produits = $requeteProduits->fetchAll();
+    return $produits;
+}
 // La fonction findAllPotions récupère tous les enregistrements de potions de la table "products" à partir de la base de données fournie.
 // Elle sélectionne uniquement les potions ayant un typeId égal à 2.
 // Elle renvoie les résultats sous forme de tableau.
 
 function findAllPotions($db) {
-    $sqlPotions = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id WHERE typeId = 2;";
+    $sqlPotions = "SELECT p.id AS id, p.name AS name, pi.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id JOIN pictures pi ON pi.productsId = p.id WHERE typeId = 2;";
     $requetePotions = $db->query($sqlPotions);
     $potions = $requetePotions->fetchAll();
     return $potions;
@@ -16,7 +21,7 @@ function findAllPotions($db) {
 // Elle renvoie les résultats sous forme de tableau.
 
 function findAllPierres($db) {
-    $sqlPierres = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id WHERE typeId = 1;";
+    $sqlPierres = "SELECT p.id AS id, p.name AS name, pi.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id JOIN pictures pi ON pi.productsId = p.id WHERE typeId = 1;";
     $requetePierres = $db->query($sqlPierres);
     $pierres = $requetePierres->fetchAll();
     return $pierres;
@@ -26,7 +31,7 @@ function findAllPierres($db) {
 // Elle renvoie les résultats sous forme d'un tableau associatif.
 
 function findProductById($db, $currentId) {
-    $sql = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id WHERE p.id = $currentId";
+    $sql = "SELECT p.id AS id, p.name AS name, pi.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type FROM products p JOIN types t ON p.typeId = t.id JOIN pictures pi ON pi.productsId = p.id WHERE p.id = $currentId";
     $requete = $db->query($sql);
     $product = $requete->fetch();
     return $product;
@@ -59,9 +64,10 @@ function getStar($rating) {
 
 function filters($db, $search, $sort) {
     // Requête SQL pour sélectionner les produits en fonction des critères de recherche et de tri
-    $sql = "SELECT p.id AS id, p.name AS name, p.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type 
+    $sql = "SELECT p.id AS id, p.name AS name, pi.path AS path, p.description AS description, p.note AS note, p.price AS price, p.typeId AS typeId, t.name AS type 
             FROM products p 
-            JOIN types t ON p.typeId = t.id 
+            JOIN types t ON p.typeId = t.id
+            JOIN pictures pi ON pi.productsId = p.id
             WHERE LOWER(p.name) LIKE LOWER('%$search%') || LOWER(description) LIKE LOWER('%$search%') 
             ORDER BY $sort;";
     
@@ -75,3 +81,9 @@ function filters($db, $search, $sort) {
     return $products;
 }
 
+function findAllTypes($db) {
+    $typeSql = "SELECT * FROM types;";
+    $sth = $db-> query($typeSql);
+    $types = $sth-> fetchAll();
+    return $types;
+}
